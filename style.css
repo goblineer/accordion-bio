@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css?family=Share+Tech|Inconsolata:400,700|Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#9348be),
+      to(#255dbd)
+    )
+    fixed;
+  font-family: "Share Tech", sans-serif;
+  /* horizontally center the .app container */
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  margin: 5rem 5rem;
+  /*position relative to position the button in the top left corner */
+  position: relative;
+  max-width: 800px;
+  width: 90vw;
+  background: hsla(240, 25%, 95%, 1);
+  border: 5px solid currentColor;
+}
+
+/* add a pseudo element for a border using a repeating linear gradient */
+.app:before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  top: 0;
+  transform: translate(-2rem, 3rem);
+  width: 100%;
+  height: 95%;
+  background: repeating-linear-gradient(
+    -45deg,
+    #fe6b61 0px,
+    #fe6b61 5px,
+    #f2d552 0px,
+    #f2d552 8px
+  );
+  z-index: -5;
+}
+
+/* absolute position the toggle button in the top left corner of the container */
+.app__toggle {
+  position: absolute;
+  bottom: 100%;
+  right: 100%;
+  padding: 0.25rem;
+  transform: translate(50%, 50%);
+  width: 60px;
+  height: 60px;
+  background: #333;
+  border: none;
+  clip-path: polygon(
+    0 20%,
+    20% 0%,
+    80% 0%,
+    100% 20%,
+    100% 80%,
+    80% 100%,
+    20% 100%,
+    0% 80%
+  );
+}
+.app__toggle svg {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  display: block;
+}
+
+.app__faq {
+  line-height: 1.75;
+}
+.app__faq details {
+  /* padding to separate the details from each other and the first details from the absolutely positioned button
+  ! margin is not used to guarantee that the dotted border considers the entire width of the container
+  */
+  padding: 2rem;
+  /* ! lower padding-bottom to offset the margin included in the summary element */
+  padding-bottom: 1.5rem;
+  font-size: 1rem;
+  /* transition for the change in background color */
+  transition: background-color 0.3s ease-out;
+}
+/* include an all details but the last a dotted border-top */
+.app__faq details + details {
+  border-top: 3px dotted currentColor;
+}
+.app__faq summary {
+  font-size: 1.4rem;
+  /* margin to distance the detailed text from the summary */
+  margin-bottom: 0.5rem;
+  /* remove the default triangle */
+  list-style: none;
+  /* align the icon with the text of the summary and push the icon to the far right of the container */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* when the details element is opened update the background's color */
+.app__faq details[open] {
+  background-color: #fff;
+}
+/* when the details element is opened rotate the svg icon */
+.app__faq details summary svg {
+  transition: transform 0.25s cubic-bezier(0.17, 0.74, 0.74, 1.2);
+}
+.app__faq details[open] summary svg {
+  transform: rotate(180deg);
+}
+/* remove the default triangle on chrome */
+.app__faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.app__faq details a {
+  color: inherit;
+}
+.app__faq code {
+  font-family: "Inconsolata", monospace;
+  background: #000000;
+  color: #ecdecd;
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+}

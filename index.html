@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kate Sandler</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <!-- SVG icons
+    - question mark
+    - exclamation point
+    - arrow used in stead of the default toggle
+-->
+    <svg style="display: none;" viewBox="0 0 100 100" width="100" height="100">
+      <!-- point shared by both marks -->
+      <symbol id="point-mark" viewBox="0 0 100 100">
+        <rect x="40" y="68" width="20" height="15" fill="#f2d552"></rect>
+      </symbol>
+
+      <!-- question mark -->
+      <symbol id="question-mark" viewBox="0 0 100 100">
+        <path
+          d="M 40 63 h 20 v -5 h 10 l 8 -8 v -25 l -8 -8 h -40 l -8 8 v 16 h 16 v -6 h 21 v 11 h -19"
+          fill="#f2d552"
+        ></path>
+
+        <use href="#point-mark"></use>
+      </symbol>
+
+      <!-- exclamation mark -->
+      <symbol id="exclamation-mark" viewBox="0 0 100 100">
+        <path d="M 40 59 l 4 4 h 12 l 4 -4 v -42 h -20" fill="#f2d552"></path>
+        <use href="#point-mark"></use>
+      </symbol>
+
+      <symbol id="arrow" viewBox="0 0 100 100">
+        <path
+          d="M 20 40 l 30 35 l 30 -35"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="20"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </symbol>
+    </svg>
+    <!-- wrapping container in which to include the details and summary elements -->
+    <div class="app">
+      <!-- button to toggle every details element open/close -->
+      <button class="app__toggle">
+        <svg width="60" height="60" viewBox="0 0 100 100">
+          <!-- using the question mark to toggle open, the exclamation mark to toggle close -->
+          <use href="#question-mark"></use>
+        </svg>
+      </button>
+      <!-- questions & answers added through the script -->
+    </div>
+    <!-- partial -->
+    <script src="https://kit.fontawesome.com/3c0a50ac67.js"></script
+    ><script src="./script.js"></script>
+  </body>
+</html>
